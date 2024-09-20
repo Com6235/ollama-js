@@ -53,7 +53,7 @@ export interface GenerateRequest {
   context?: number[]
   stream?: boolean
   raw?: boolean
-  format?: string
+  format?: 'json'
   images?: Uint8Array[] | string[]
   keep_alive?: string | number
 
@@ -61,7 +61,7 @@ export interface GenerateRequest {
 }
 
 export interface Message {
-  role: string
+  role: 'assistant' | 'user' | 'system' | 'tool'
   content: string
   images?: Uint8Array[] | string[]
   tool_calls?: ToolCall[]
@@ -99,7 +99,7 @@ export interface ChatRequest {
   model: string
   messages?: Message[]
   stream?: boolean
-  format?: string
+  format?: 'json'
   keep_alive?: string | number
   tools?: Tool[]
 
